@@ -7,9 +7,6 @@ treeJSON = d3.json("../top/data.json", function(error, treeData) {
 var width = $(document).width();
 var height = $(document).height();
 
-
-
-
 var margin = {top: 20, right: 90, bottom: 30, left: 90}
 
 // append the svg object to the body of the page
@@ -178,7 +175,7 @@ function update(source) {
 
   // Toggle children on click.
   function click(d) {
-    if (d.data.commit_data){console.log(d.data.commit_data)};
+    if (d.data.commit_data){console.log(d.data.type)};
     if (d.children) {
         d._children = d.children;
         d.children = null;

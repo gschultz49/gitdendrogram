@@ -17,20 +17,20 @@ root= "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top"
 
 def generateFile(files, parent):
   keeper=[]
-  # triggers on NON DIRECTORIES
   for file in files:
     # saves output of CL call to variable for storage to json
     commit_data = subprocess.check_output("git log --follow %s" %(file), shell=True)
     keeper.append({
       "name" : file,
       "parent" : parent,
-      "commit_data" : commit_data      
+      "commit_data" : commit_data,
+      "isFile": "true"      
     })
   return keeper
 
 
 
-def directDFS(abs_path):
+def directDFS(abs_path, master=[]):
   # Setup, needed regardless of recursion state
   root=os.chdir(abs_path)
   dirs = glob('*/')
@@ -38,37 +38,42 @@ def directDFS(abs_path):
   parent= os.path.dirname(abs_path)
   folder_name = os.path.basename(abs_path)
 
-  # Base Case, generates jsons for the files specifically
-  if dirs==[]:
-  	return generateFile(files, parent)
+  # NOT NEEDED   Base Case, generates json directories of purely files
+  # if dirs==[]:
+  # 	return generateFile(files, parent)
 
-  # master contains each level
-  master= generateFile(files, parent)
 
-  # triggers on any directory, regardless of whats inside of it
+  # Base case
+  # generates json for directories containing files AND directories
+  if files!=[]:
+    master= generateFile(files, parent)
+
+  # enters directory
   for direct in dirs:
-	new_dir_path=os.path.join(abs_path,direct)
-	file_dir= os.path.dirname(new_dir_path)
-	parent = os.path.dirname(file_dir)
-	parent_simple= os.path.split(os.path.dirname(file_dir))[-1]
-	master.append({
-		"name" : direct,
-		"file_path" : file_dir,
-		"parent": parent,
-		"parent_simple" : parent_simple,
-		"children"  : directDFS(new_dir_path)
-	  })
+  	new_dir_path=os.path.join(abs_path,direct)
+  	file_dir= os.path.dirname(new_dir_path)
+  	parent = os.path.dirname(file_dir)
+  	parent_simple= os.path.split(os.path.dirname(file_dir))[-1]
+  	master.append({
+  		"name" : direct,
+  		"file_path" : file_dir,
+  		"parent": parent,
+  		"parent_simple" : parent_simple,
+  		"children"  : directDFS(new_dir_path),
+      "isFile":"false",
+  	  })
+
   return master
 	
 
 
-# inital root setup
-
+# inital root setup and recursive call
 final=[]
 final.append({
   "name": root,
   "parent": "null",
-  "children" : directDFS(root)
+  "children" : directDFS(root),
+  "isFile" : "false",
   })
 
 # reset for json dump
