@@ -1,5 +1,5 @@
 
-treeJSON = d3.json("../top/data.json", function(error, treeData) {
+treeJSON = d3.json("../flask.json", function(error, treeData) {
   // console.log(treeData)
 
 // Set the dimensions and margins of the diagram
@@ -76,7 +76,10 @@ function update(source) {
       .attr('class', 'node')
       .attr('r', 1e-6)
       .style("fill", function(d) {
-          return d._children ? "lightsteelblue" : "#fff";
+          return d._children ? "rgb(255,155,12)" : "rgb(255,244,228)";
+      })
+      .style("stroke", function(d) {
+          return d.data.isFile ? "rgb(255,155,12)" : "rgb(255,244,228)";
       });
 
   // Add labels for the nodes
@@ -104,8 +107,11 @@ function update(source) {
   nodeUpdate.select('circle.node')
     .attr('r', 10)
     .style("fill", function(d) {
-        return d._children ? "lightsteelblue" : "#fff";
-    })
+          return d._children ? "rgb(255,155,12)" : "rgb(255,244,228)";
+      })
+      .style("stroke", function(d) {
+          return d.data.isFile ? "rgb(255,155,12)" : "rgb(255,244,228)";
+      })
     .attr('cursor', 'pointer');
 
 

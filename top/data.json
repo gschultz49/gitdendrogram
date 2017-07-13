@@ -1,7 +1,8 @@
 {
     "children": [
         {
-            "commit_data": "commit e5238eea9d56643d6bbb606dde6c5c8c61f18cd7\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 15:24:07 2017 -0400\n\n    full dfs with directories and files\n\ncommit 15c0f57d2429d695804a40fbe547c04807582c15\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 13:28:11 2017 -0400\n\n    stable implementation, takes a lot of time though\n\ncommit 918965f1b8028e0b0f33f6111b999c78e511449d\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 12:31:32 2017 -0400\n\n    implementation of dfs\n",
+            "commit_data": "commit f31988247f34c2cfadcbcea0730036dbe46a7228\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 16:12:48 2017 -0400\n\n    remove excess base case\n\ncommit e5238eea9d56643d6bbb606dde6c5c8c61f18cd7\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 15:24:07 2017 -0400\n\n    full dfs with directories and files\n\ncommit 15c0f57d2429d695804a40fbe547c04807582c15\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 13:28:11 2017 -0400\n\n    stable implementation, takes a lot of time though\n\ncommit 918965f1b8028e0b0f33f6111b999c78e511449d\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 12:31:32 2017 -0400\n\n    implementation of dfs\n",
+            "id_hash": 9232580567336193095169054571249336133,
             "isFile": "true",
             "name": "data.json",
             "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram"
@@ -9,6 +10,7 @@
         {
             "children": [],
             "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\empty",
+            "id_hash": 197411092492216040937036134484538716516,
             "isFile": "false",
             "name": "empty\\",
             "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
@@ -18,18 +20,21 @@
             "children": [
                 {
                     "commit_data": "commit 918965f1b8028e0b0f33f6111b999c78e511449d\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 12:31:32 2017 -0400\n\n    implementation of dfs\n",
+                    "id_hash": 302838928710808823799678095139349788101,
                     "isFile": "true",
                     "name": "data.json",
                     "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second"
                 },
                 {
                     "commit_data": "commit 45c44475b70ea3aff50e4041a1e1025c4f05a1e2\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 22:57:26 2017 -0400\n\n    middle of dfs\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                    "id_hash": 235545761985466110517143756898777869487,
                     "isFile": "true",
                     "name": "secondfile.txt",
                     "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second"
                 },
                 {
                     "commit_data": "commit 918965f1b8028e0b0f33f6111b999c78e511449d\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 12:31:32 2017 -0400\n\n    implementation of dfs\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                    "id_hash": 186645077462869432423316502446108580604,
                     "isFile": "true",
                     "name": "secondfile2.txt",
                     "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second"
@@ -38,18 +43,21 @@
                     "children": [
                         {
                             "commit_data": "commit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                            "id_hash": 174792807804247487800796019697491525379,
                             "isFile": "true",
                             "name": "fourthfile.txt",
                             "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth"
                         },
                         {
                             "commit_data": "commit 918965f1b8028e0b0f33f6111b999c78e511449d\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 12:31:32 2017 -0400\n\n    implementation of dfs\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                            "id_hash": 145239807237334498837296340435784214908,
                             "isFile": "true",
                             "name": "fourthfile2.txt",
                             "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth"
                         }
                     ],
                     "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth",
+                    "id_hash": 67907069939679858758133295257437297756,
                     "isFile": "false",
                     "name": "fourth\\",
                     "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
@@ -59,12 +67,14 @@
                     "children": [
                         {
                             "commit_data": "commit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                            "id_hash": 191393539728372109875304937033663345742,
                             "isFile": "true",
                             "name": "thirdfile.txt",
                             "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third"
                         }
                     ],
                     "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third",
+                    "id_hash": 41784387898846211958963044741155943784,
                     "isFile": "false",
                     "name": "third\\",
                     "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
@@ -72,6 +82,7 @@
                 }
             ],
             "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+            "id_hash": 304766363405664603475425757549981950254,
             "isFile": "false",
             "name": "second\\",
             "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
@@ -81,18 +92,21 @@
             "children": [
                 {
                     "commit_data": "commit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                    "id_hash": 219790444165626316675635457663805493637,
                     "isFile": "true",
                     "name": "second2file.txt",
                     "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2"
                 }
             ],
             "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2",
+            "id_hash": 124365131100250976357049266732320893008,
             "isFile": "false",
             "name": "second2\\",
             "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
             "parent_simple": "top"
         }
     ],
+    "id_hash": 18017130397026782750703506643751481560,
     "isFile": "false",
     "name": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
     "parent": "null"
