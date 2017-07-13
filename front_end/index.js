@@ -1,75 +1,5 @@
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<style>
 
-.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 3px;
-}
-
-.node text {
-  font: 12px sans-serif;
-}
-
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 2px;
-}
-
-</style>
-
-<body>
-
-<!-- load the d3.js library -->	
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script>
-
-var treeData =
-  {
-    "name": "top",
-    "parent": "null",
-    "children": [
-      {
-        "name": "second",
-        "parent": "top",
-        "children": [
-          {
-            "name": "third",
-            "parent": "second",
-            "children" : [
-	            {
-	                "name": "thirdfile.txt",
-	                "parent": "third",
-	            }
-            ]
-          },
-          {
-            "name": "fourth",
-            "parent": "second",
-            "children" : [
-	            {
-	                "name": "fourthfile.txt",
-	                "parent": "fourth",
-	            }
-            ]
-          }
-        ]
-      },
-
-      {
-        "name": "second2",
-        "parent": "top",
-        "children" : [
-	        {
-	            "name" : "second2file.txt",
-	            "parent": "second2",
-	        }
-        ]
-      },
-    ]
-};
+treeJSON = d3.json("ideal.json", function(error, treeData) {
 
 // Set the dimensions and margins of the diagram
 var margin = {top: 20, right: 90, bottom: 30, left: 90},
@@ -253,5 +183,4 @@ function update(source) {
   }
 }
 
-</script>
-</body>
+});

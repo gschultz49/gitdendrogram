@@ -1,5 +1,5 @@
 // Get JSON data
-treeJSON = d3.json("flare.json", function(error, treeData) {
+treeJSON = d3.json("ideal.json", function(error, treeData) {
     console.log(treeData);
 
     // Calculate total nodes, max label length
