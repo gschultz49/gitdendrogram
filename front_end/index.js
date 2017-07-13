@@ -1,10 +1,14 @@
 
-treeJSON = d3.json("ideal.json", function(error, treeData) {
+treeJSON = d3.json("../flask.json", function(error, treeData) {
+  // console.log(treeData)
 
 // Set the dimensions and margins of the diagram
-var margin = {top: 20, right: 90, bottom: 30, left: 90},
-    width = 960 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+
+var width = $(document).width();
+    // var viewerWidth = 900
+var height = $(document).height();
+
+var margin = {top: 20, right: 90, bottom: 30, left: 90}
 
 // append the svg object to the body of the page
 // appends a 'group' element to 'svg'
@@ -172,6 +176,7 @@ function update(source) {
 
   // Toggle children on click.
   function click(d) {
+    console.log(d.data.commit_data);
     if (d.children) {
         d._children = d.children;
         d.children = null;

@@ -1,5 +1,5 @@
 // Get JSON data
-treeJSON = d3.json("ideal.json", function(error, treeData) {
+treeJSON = d3.json("../flask.json", function(error, treeData) {
     console.log(treeData);
 
     // Calculate total nodes, max label length
@@ -17,10 +17,10 @@ treeJSON = d3.json("ideal.json", function(error, treeData) {
     var root;
 
     // size of the diagram
-    // var viewerWidth = $(document).width();
-    var viewerWidth = 900
-    // var viewerHeight = $(document).height();
-    var viewerHeight = 400
+    var viewerWidth = $(document).width();
+    // var viewerWidth = 900
+    var viewerHeight = $(document).height();
+    // var viewerHeight = 400
 
     var tree = d3.layout.tree()
         .size([viewerHeight, viewerWidth]);
@@ -333,7 +333,8 @@ treeJSON = d3.json("ideal.json", function(error, treeData) {
 
     function click(d) {
         //Access point for each circle
-        console.log(d);
+        console.log(d.commit_data);
+
         if (d3.event.defaultPrevented) return; // click suppressed
         d = toggleChildren(d);
         update(d);
