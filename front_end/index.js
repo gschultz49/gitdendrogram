@@ -1,12 +1,14 @@
 
-treeJSON = d3.json("../flask.json", function(error, treeData) {
+treeJSON = d3.json("../top/data.json", function(error, treeData) {
   // console.log(treeData)
 
 // Set the dimensions and margins of the diagram
 
 var width = $(document).width();
-    // var viewerWidth = 900
 var height = $(document).height();
+
+
+
 
 var margin = {top: 20, right: 90, bottom: 30, left: 90}
 
@@ -176,7 +178,7 @@ function update(source) {
 
   // Toggle children on click.
   function click(d) {
-    console.log(d.data.commit_data);
+    if (d.data.commit_data){console.log(d.data.commit_data)};
     if (d.children) {
         d._children = d.children;
         d.children = null;
