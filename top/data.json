@@ -1,0 +1,52 @@
+[
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "name": "fourthfile.txt",
+                                "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth"
+                            },
+                            {
+                                "name": "fourthfile2.txt",
+                                "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth"
+                            }
+                        ],
+                        "dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth",
+                        "name": "fourth\\",
+                        "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second"
+                    },
+                    {
+                        "children": [
+                            {
+                                "name": "thirdfile.txt",
+                                "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third"
+                            }
+                        ],
+                        "dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third",
+                        "name": "third\\",
+                        "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second"
+                    }
+                ],
+                "dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                "name": "second\\",
+                "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top"
+            },
+            {
+                "children": [
+                    {
+                        "name": "second2file.txt",
+                        "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2"
+                    }
+                ],
+                "dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2",
+                "name": "second2\\",
+                "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top"
+            }
+        ],
+        "name": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+        "parent": "null"
+    }
+]
