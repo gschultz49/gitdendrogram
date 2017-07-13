@@ -17,8 +17,10 @@ treeJSON = d3.json("ideal.json", function(error, treeData) {
     var root;
 
     // size of the diagram
-    var viewerWidth = $(document).width();
-    var viewerHeight = $(document).height();
+    // var viewerWidth = $(document).width();
+    var viewerWidth = 900
+    // var viewerHeight = $(document).height();
+    var viewerHeight = 400
 
     var tree = d3.layout.tree()
         .size([viewerHeight, viewerWidth]);
@@ -330,6 +332,8 @@ treeJSON = d3.json("ideal.json", function(error, treeData) {
     // Toggle children on click.
 
     function click(d) {
+        //Access point for each circle
+        console.log(d);
         if (d3.event.defaultPrevented) return; // click suppressed
         d = toggleChildren(d);
         update(d);
