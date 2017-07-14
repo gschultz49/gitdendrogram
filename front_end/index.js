@@ -1,4 +1,4 @@
-treeJSON = d3.json("gitstats-new.json", function(error, treeData) {
+treeJSON = d3.json("SimulScan.json", function(error, treeData) {
 
 // Set the dimensions and margins of the diagram
 
@@ -184,7 +184,7 @@ function update(source) {
     if (d.data.commit_data){
       console.log(d.data.commit_data);
       $("#commit_data").empty();
-      $("#commit_data").append("<pre>"+d.data.commit_data+"</pre>")
+      $("#commit_data").append("<h3>"+d.data.full_path+"</h3><pre>"+d.data.commit_data+"</pre>")
     };
     if (d.children) {
         d._children = d.children;

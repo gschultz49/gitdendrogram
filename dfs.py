@@ -10,13 +10,16 @@ import json
 import subprocess
 
 global options
+# Default options
 options= {
   "git": "false"
+  # "git": "true"
 }
 
 # Dictate path here, maybe make this a CL arguement later
-# root="C:\Users\GSCHULTZ\Desktop\SimulScan"
-root ="C:\Users\GSCHULTZ\Desktop\gitstats-new"
+root="C:\Users\GSCHULTZ\Desktop\SimulScan"  
+# root ="C:\Users\GSCHULTZ\Desktop\gitstats-new"
+# root="C:\Users\GSCHULTZ\Desktop\gitdendrogram\\top"
 
 
 def appendRoot(root,arr):
@@ -35,6 +38,13 @@ def appendRoot(root,arr):
   })
   return (arr)
 
+def getParentDirectory():
+  reference=os.getcwd()
+  os.chdir('..')
+  parent=os.getcwd()
+  os.chdir(reference)
+  return parent
+
 def appendFile(file, parent, arr):
   '''Dictates and appends json data SPECIFICALLY for any file
 
@@ -46,21 +56,36 @@ def appendFile(file, parent, arr):
   '''
 
   # Saves output of CL call to variable for storage to json
+  global local_root
+
+  
+
+
+  potential_parent=getParentDirectory()
+  # special case for files in root directory
+  if os.path.relpath(potential_parent,parent)==os.path.basename(local_root):
+    parent=potential_parent
+  
 
   full_file_path= os.path.join(parent,file)
-  global local_root
   git_path= os.path.relpath(full_file_path, local_root)
 
-  reference=os.getcwd()
-  
+  # print (parent,file, os.getcwd())
+
+
+
+
   global options
   if options['git']=="true":
     # gets all commit data across branches for this file
-    commit_data = str(subprocess.check_output("cd %s && git log --all -- %s && cd %s" %(parent,file, reference), shell=True))
+    commit_data = str(subprocess.check_output("cd %s && git log --all -- \"%s\" && cd %s" %(parent,file, reference), shell=True))
     if commit_data=="":
       commit_data="No data available"
   else:
     commit_data="Git mode not enabled"
+  
+
+  
 
 
 
