@@ -1,8 +1,5 @@
 treeJSON = d3.json("gitstats-new.json", function(error, treeData) {
 
-
-  // console.log(treeData)
-
 // Set the dimensions and margins of the diagram
 
 var width = $(document).width();

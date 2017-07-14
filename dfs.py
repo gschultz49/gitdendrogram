@@ -9,6 +9,11 @@ from glob import glob
 import json
 import subprocess
 
+global options
+options= {
+  "git": "false"
+}
+
 # Dictate path here, maybe make this a CL arguement later
 # root="C:\Users\GSCHULTZ\Desktop\SimulScan"
 root ="C:\Users\GSCHULTZ\Desktop\gitstats-new"
@@ -47,10 +52,16 @@ def appendFile(file, parent, arr):
   git_path= os.path.relpath(full_file_path, local_root)
 
   reference=os.getcwd()
-  # gets all commit data across branches for this file
-  commit_data = str(subprocess.check_output("cd %s && git log --all -- %s && cd %s" %(parent,file, reference), shell=True))
-  if commit_data=="":
-    commit_data="No data available"
+  
+  global options
+  if options['git']=="true":
+    # gets all commit data across branches for this file
+    commit_data = str(subprocess.check_output("cd %s && git log --all -- %s && cd %s" %(parent,file, reference), shell=True))
+    if commit_data=="":
+      commit_data="No data available"
+  else:
+    commit_data="Git mode not enabled"
+
 
 
   arr.append({
