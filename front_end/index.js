@@ -1,4 +1,4 @@
-treeJSON = d3.json("tree.json", function(error, treeData) {
+treeJSON = d3.json("gitstats-new.json", function(error, treeData) {
 
 
   // console.log(treeData)

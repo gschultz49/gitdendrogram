@@ -1,24 +1,27 @@
 #!/usr/bin/python
 
 # Notes
-# Use this on the root of a repo
+# Use this on the root of a folder
 # The git is what slows this down for the most part...
 
 import os
 from glob import glob
 import json
 import subprocess
-import hashlib
 
-# Dictate path here, make this a CL arguement later
-# root= "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top"
-# root= "C:\Users\GSCHULTZ\Desktop\gitstats-new\gitstats\Flask"
+# Dictate path here, maybe make this a CL arguement later
 # root="C:\Users\GSCHULTZ\Desktop\SimulScan"
-# root="C:\Users\GSCHULTZ\Desktop\SimulScan\SimulScanTest"
-# root="/Users/gschultz49/Desktop/Projects/SpringMvcStepByStep"
-root="/Users/gschultz49/Desktop/Projects/web-api-auth-examples"
+root ="C:\Users\GSCHULTZ\Desktop\gitstats-new"
+
 
 def appendRoot(root,arr):
+  ''' Dictates and appends json data SPECIFICALLY for the root folder.
+
+  Args:
+    root (str): Full system path to target directory
+    arr (list): Contains all jsons of type Root
+
+  '''
   arr.append({
     "name": root,
     "parent": "null",
@@ -28,44 +31,78 @@ def appendRoot(root,arr):
   return (arr)
 
 def appendFile(file, parent, arr):
+  '''Dictates and appends json data SPECIFICALLY for any file
+
+  Args:
+    file (str): File name with extension, ex: foo.txt
+    parent (str): Full path to parent directory of this file
+    arr (list): Contains all jsons of type file at this level
+
+  '''
+
+  # Saves output of CL call to variable for storage to json
+  # commit_data = str(subprocess.check_output("git log --follow \"%s\"" %(file), shell=True))
+
   arr.append({
       "name" : file,
       "parent" : parent,
-      # "commit_data" : str(commit_data),
-      "isFile": "true",
-      # "id_hash" : int(hashlib.md5(os.path.join(parent+file)).hexdigest(), 16)  
+      # "commit_data" : commit_data,
+      "isFile": "true",  
+      "type": "File",
   })
   return (arr)
 
-def appendDir(direct, parent, file_dir, parent_simple, new_dir_path,arr):
+def appendDir(direct, parent, dir_path, parent_simple, new_dir_path,arr):
+  '''Dictates and appends json data SPECIFICALLY for any directory
+
+  Args:
+    direct (str): Directory name, dependent on OS can be directory\ (Windows) or directory/ (Linux)
+    parent (str): Full path to parent directory of this directory
+    dir_path (str): Full system path to this directory, can vary between Windows/Linux
+    parent_simple (str): Simple name of parent directory, without slashes
+    new_dir_path (str): Joined path of this directory and root
+    arr (list): arr (list): Contains all jsons of type directory at this level
+
+  '''
   arr.append({
-      "name" : direct,
-      "file_path" : file_dir,
-      "parent": parent,
-      "parent_simple" : parent_simple,
-      "children"  : DFR(new_dir_path),
-      "isFile":"false",
+     "name": direct,
+     "file_path":dir_path,
+     "parent":parent,
+     "parent_simple":parent_simple,
+     "new_dir_path": new_dir_path,
+     "children": DFR(new_dir_path),
+     "isFile": "false",
+     "type": "Dir",
   })
   return arr
 
 
+
 def generateFile(files, parent):
+  '''Returns jsons for all files at this directory
+
+  Args:
+    files (list): Contains names with extensions of all files in this directory, ex : ['foo.txt','bar.pdf'] 
+    parent (str): Full path to parent directory of this file
+
+  '''
+
   keeper=[]
   for file in files:
-    # badChars = set("&")
-    # for char in badChars:
-    #   if char in file:
-    #     index= file.index(char)
-    #     file = file[:index]+"\\"+file[index:]
-
-
-    # saves output of CL call to variable for storage to json
-    # commit_data = subprocess.check_output("git log --follow \"%s\"" %(file), shell=True)
     keeper=appendFile(file,parent,keeper)
 
   return keeper
 
 def generateDirs(dirs, parent, abs_path):
+  '''Returns jsons for all directories within the current directory
+
+    Args:
+      dirs (list): Contains names of all directories within this directory, ex : ['dir1','dir2'] 
+      parent (str): Full path to parent directory of this directory
+      abs_path (str): the full path to the root of the target repo
+
+  '''
+
   master=[]
   for direct in dirs:
     new_dir_path=os.path.join(abs_path,direct)
@@ -78,9 +115,15 @@ def generateDirs(dirs, parent, abs_path):
 
   return master
 
-
-# Depth first recursion, not really search
 def DFR(abs_path, master=[]):
+  '''Recursively enables the generation of directories and files, returns the relevant json data
+
+  Args:
+    abs_path (str): the full path to the root of the target repo
+    master (list): contains total json structure of this repo   
+
+  '''
+
   # Setup, needed regardless of recursion state
   root=os.chdir(abs_path)
   dirs = glob('*/')
@@ -88,39 +131,55 @@ def DFR(abs_path, master=[]):
   parent= os.path.dirname(abs_path)
   folder_name = os.path.basename(abs_path)
 
-  # Base case
-  if dirs!=[]:
+  # Base case, indicates endpoints
+  if dirs!=[] or file!=[]:
     # construct json data for files and directories
-    master= generateFile(files, parent) + generateDirs(dirs, parent, abs_path)
+    master=  generateDirs(dirs, parent, abs_path) + generateFile(files, parent) 
 
   return master
-	
+  
+def outputData(root,final_output):
+  '''Sets up and writes the json data to <root_path>/TREE_OUTPUT/<root>.json
 
+  Args:
+    root (str): Full system path to target directory
+    final_output (list): full json data for this root directory
 
-def outputData(root,new_dir,final_output):
-  # directs output to TREE_OUTPUT within the root of the target directory
+  '''
+
+  new_dir= root+"/"+"TREE_OUTPUT"
+
   os.chdir(root)
+
+  # check if new directory exists and move into it, else make it
   os.chdir(new_dir) if os.path.exists(new_dir) else os.mkdir(new_dir)
 
-  # Output to terminal
+  output_name=os.path.basename(root)
+
+  # directs output to <root_path>/TREE_OUTPUT/<root_basename>.json
+  with open(new_dir+'/'+output_name+'.json', 'w') as outfile:
+    # Pretty output for file
+    json.dump(final_output[0], outfile, indent=4, sort_keys=False, separators=(',', ': '))
+
+
+  # Uncomment to output into terminal
   # print ("final_output %s" %(json.dumps(final_output, indent=4, sort_keys=True)))
 
+def start(root):
+  '''Kicks off execution
 
-  with open(new_dir+'/tree.json', 'w') as outfile:
-    # pretty output for file
-    # write ONLY the json, not the array
-    json.dump(final_output[0], outfile, indent=4, sort_keys=True, separators=(',', ': '))
+  Args: 
+     root (str): Full system path to target directory
+  '''
+  
+  # inital root setup and start the first recursive call
+  # final_output=[]
+  final_output=appendRoot(root,[])
 
-
-
-# will appear in the root directory
-new_dir= root+"/"+"TREE_OUTPUT"
-
-# inital root setup and start the first recursive call
-final_output=[]
-final_output=appendRoot(root,final_output)
-
-# output data
-outputData(root,new_dir,final_output)
+  # output data 
+  outputData(root,final_output)
 
 
+
+if __name__ == '__main__':
+    start(root)
