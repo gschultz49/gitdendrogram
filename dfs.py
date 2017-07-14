@@ -47,8 +47,11 @@ def appendFile(file, parent, arr):
   git_path= os.path.relpath(full_file_path, local_root)
 
   reference=os.getcwd()
-  # gets all commits data across branches for this file
+  # gets all commit data across branches for this file
   commit_data = str(subprocess.check_output("cd %s && git log --all -- %s && cd %s" %(parent,file, reference), shell=True))
+  if commit_data=="":
+    commit_data="No data available"
+
 
   arr.append({
       "name" : file,

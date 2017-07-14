@@ -184,7 +184,11 @@ function update(source) {
 
   // Toggle children on click.
   function click(d) {
-    if (d.data.commit_data){console.log(d.data.commit_data)};
+    if (d.data.commit_data){
+      console.log(d.data.commit_data);
+      $("#commit_data").empty();
+      $("#commit_data").append("<pre>"+d.data.commit_data+"</pre>")
+    };
     if (d.children) {
         d._children = d.children;
         d.children = null;
