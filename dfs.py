@@ -41,14 +41,22 @@ def appendFile(file, parent, arr):
   '''
 
   # Saves output of CL call to variable for storage to json
-  # commit_data = str(subprocess.check_output("git log --follow \"%s\"" %(file), shell=True))
+
+  full_file_path= os.path.join(parent,file)
+  global local_root
+  git_path= os.path.relpath(full_file_path, local_root)
+
+  reference=os.getcwd()
+  # gets all commits data across branches for this file
+  commit_data = str(subprocess.check_output("cd %s && git log --all -- %s && cd %s" %(parent,file, reference), shell=True))
 
   arr.append({
       "name" : file,
       "parent" : parent,
-      # "commit_data" : commit_data,
-      "isFile": "true",  
-      "type": "File",
+      "commit_data" : commit_data,  
+      "isFile": "true",
+      "full_path": full_file_path,
+      "git_path": git_path
   })
   return (arr)
 
@@ -72,7 +80,6 @@ def appendDir(direct, parent, dir_path, parent_simple, new_dir_path,arr):
      "new_dir_path": new_dir_path,
      "children": DFR(new_dir_path),
      "isFile": "false",
-     "type": "Dir",
   })
   return arr
 
@@ -182,4 +189,6 @@ def start(root):
 
 
 if __name__ == '__main__':
-    start(root)
+  global local_root 
+  local_root=root
+  start(root)

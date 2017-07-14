@@ -8,6 +8,8 @@ treeJSON = d3.json("gitstats-new.json", function(error, treeData) {
 var width = $(document).width();
 var height = $(document).height();
 
+
+
 var margin = {top: 20, right: 90, bottom: 30, left: 90}
 
 // append the svg object to the body of the page
@@ -109,7 +111,7 @@ function update(source) {
     .attr('r', 10)
     .style("fill", function(d) {
           return d._children ? "rgb(255,155,12)" : "rgb(255,244,228)";
-      })
+      })  
       .style("stroke", function(d) {
           return d.data.isFile ? "rgb(255,155,12)" : "rgb(255,244,228)";
       })
