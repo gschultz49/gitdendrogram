@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 # Notes
-# Use this on the root git directory
-# This is currently very slow for huge directories
+# Use this on the root of a repo
+# The git is what slows this down for the most part...
 
 import os
 from glob import glob
@@ -14,7 +14,8 @@ import hashlib
 # root= "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top"
 # root= "C:\Users\GSCHULTZ\Desktop\gitstats-new\gitstats\Flask"
 # root="C:\Users\GSCHULTZ\Desktop\SimulScan"
-root="C:\Users\GSCHULTZ\Desktop\SimulScan\SimulScanTest"
+# root="C:\Users\GSCHULTZ\Desktop\SimulScan\SimulScanTest"
+root="/Users/gschultz49/Desktop/Projects/SpringMvcStepByStep"
 
 # Loops through all files and generates the corresponding JSON data
 
@@ -33,9 +34,9 @@ def generateFile(files, parent):
     keeper.append({
       "name" : file,
       "parent" : parent,
-      # "commit_data" : commit_data,
+      # "commit_data" : str(commit_data),
       "isFile": "true",
-      "id_hash" : int(hashlib.md5(os.path.join(parent+file)).hexdigest(), 16)  
+      # "id_hash" : int(hashlib.md5(os.path.join(parent+file)).hexdigest(), 16)  
     })
   return keeper
 
@@ -48,27 +49,31 @@ def directDFS(abs_path, master=[]):
   parent= os.path.dirname(abs_path)
   folder_name = os.path.basename(abs_path)
 
+   # enters each directory
+  if dirs!=[]:
+    master= generateFile(files, parent)
+    for direct in dirs:
+      new_dir_path=os.path.join(abs_path,direct)
+      file_dir= os.path.dirname(new_dir_path)
+      parent = os.path.dirname(file_dir)
+      parent_simple= os.path.split(os.path.dirname(file_dir))[-1]
+      master.append({
+        "name" : direct,
+        "file_path" : file_dir,
+        "parent": parent,
+        "parent_simple" : parent_simple,
+        "children"  : directDFS(new_dir_path),
+        "isFile":"false",
+        # "id_hash" : int(hashlib.md5(os.path.join(parent+direct)).hexdigest(), 16) 
+        })
+
+
   # Base case
   # generates json for directories containing files AND directories
-  if files!=[]:
-    master= generateFile(files, parent)
+  # if files!=[]:
+  #   master= generateFile(files, parent)
 
-  # enters each directory
-  if dirs!=[]:
-    for direct in dirs:
-    	new_dir_path=os.path.join(abs_path,direct)
-    	file_dir= os.path.dirname(new_dir_path)
-    	parent = os.path.dirname(file_dir)
-    	parent_simple= os.path.split(os.path.dirname(file_dir))[-1]
-    	master.append({
-    		"name" : direct,
-    		"file_path" : file_dir,
-    		"parent": parent,
-    		"parent_simple" : parent_simple,
-    		"children"  : directDFS(new_dir_path),
-        "isFile":"false",
-        "id_hash" : int(hashlib.md5(os.path.join(parent+direct)).hexdigest(), 16) 
-    	  })
+ 
 
   return master
 	
@@ -81,7 +86,7 @@ final_output.append({
   "parent": "null",
   "children" : directDFS(root),
   "isFile" : "false",
-  "id_hash" : int(hashlib.md5(os.path.join("null"+root)).hexdigest(), 16) 
+  # "id_hash" : int(hashlib.md5(os.path.join("null"+root)).hexdigest(), 16) 
   })
 
 # reset for json dump

@@ -1,5 +1,6 @@
+treeJSON = d3.json("spring.json", function(error, treeData) {
 
-treeJSON = d3.json("../flask.json", function(error, treeData) {
+
   // console.log(treeData)
 
 // Set the dimensions and margins of the diagram
@@ -181,7 +182,7 @@ function update(source) {
 
   // Toggle children on click.
   function click(d) {
-    if (d.data.commit_data){console.log(d.data.type)};
+    if (d.data.commit_data){console.log(d.data.commit_data)};
     if (d.children) {
         d._children = d.children;
         d.children = null;
