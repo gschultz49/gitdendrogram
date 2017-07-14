@@ -18,7 +18,36 @@ import hashlib
 # root="/Users/gschultz49/Desktop/Projects/SpringMvcStepByStep"
 root="/Users/gschultz49/Desktop/Projects/web-api-auth-examples"
 
-# Loops through all files and generates the corresponding JSON data
+def appendRoot(root,arr):
+  arr.append({
+    "name": root,
+    "parent": "null",
+    "children" : DFR(root),
+    "isFile" : "false",
+  })
+  return (arr)
+
+def appendFile(file, parent, arr):
+  arr.append({
+      "name" : file,
+      "parent" : parent,
+      # "commit_data" : str(commit_data),
+      "isFile": "true",
+      # "id_hash" : int(hashlib.md5(os.path.join(parent+file)).hexdigest(), 16)  
+  })
+  return (arr)
+
+def appendDir(direct, parent, file_dir, parent_simple, new_dir_path,arr):
+  arr.append({
+      "name" : direct,
+      "file_path" : file_dir,
+      "parent": parent,
+      "parent_simple" : parent_simple,
+      "children"  : DFR(new_dir_path),
+      "isFile":"false",
+  })
+  return arr
+
 
 def generateFile(files, parent):
   keeper=[]
@@ -32,13 +61,8 @@ def generateFile(files, parent):
 
     # saves output of CL call to variable for storage to json
     # commit_data = subprocess.check_output("git log --follow \"%s\"" %(file), shell=True)
-    keeper.append({
-      "name" : file,
-      "parent" : parent,
-      # "commit_data" : str(commit_data),
-      "isFile": "true",
-      # "id_hash" : int(hashlib.md5(os.path.join(parent+file)).hexdigest(), 16)  
-    })
+    keeper=appendFile(file,parent,keeper)
+
   return keeper
 
 def generateDirs(dirs, parent, abs_path):
@@ -48,18 +72,15 @@ def generateDirs(dirs, parent, abs_path):
     file_dir= os.path.dirname(new_dir_path)
     parent = os.path.dirname(file_dir)
     parent_simple= os.path.split(os.path.dirname(file_dir))[-1]
-    master.append({
-      "name" : direct,
-      "file_path" : file_dir,
-      "parent": parent,
-      "parent_simple" : parent_simple,
-      "children"  : directDFS(new_dir_path),
-      "isFile":"false",
-      })
+
+    master=appendDir(direct,parent, file_dir, parent_simple, new_dir_path,master)
+
+
   return master
 
 
-def directDFS(abs_path, master=[]):
+# Depth first recursion, not really search
+def DFR(abs_path, master=[]):
   # Setup, needed regardless of recursion state
   root=os.chdir(abs_path)
   dirs = glob('*/')
@@ -76,24 +97,30 @@ def directDFS(abs_path, master=[]):
 	
 
 
+def outputData(root,new_dir,final_output):
+  # directs output to TREE_OUTPUT within the root of the target directory
+  os.chdir(root)
+  os.chdir(new_dir) if os.path.exists(new_dir) else os.mkdir(new_dir)
+
+  # Output to terminal
+  # print ("final_output %s" %(json.dumps(final_output, indent=4, sort_keys=True)))
+
+
+  with open(new_dir+'/tree.json', 'w') as outfile:
+    # pretty output for file
+    # write ONLY the json, not the array
+    json.dump(final_output[0], outfile, indent=4, sort_keys=True, separators=(',', ': '))
+
+
+
+# will appear in the root directory
+new_dir= root+"/"+"TREE_OUTPUT"
+
 # inital root setup and start the first recursive call
 final_output=[]
-final_output.append({
-  "name": root,
-  "parent": "null",
-  "children" : directDFS(root),
-  "isFile" : "false",
-  })
+final_output=appendRoot(root,final_output)
 
-# directs output
-os.chdir(root)
-new_dir= root+"/"+"TREE_OUTPUT"
-os.chdir(new_dir) if os.path.exists(new_dir) else os.mkdir(new_dir)
+# output data
+outputData(root,new_dir,final_output)
 
-# Output to terminal
-# print ("final_output %s" %(json.dumps(final_output, indent=4, sort_keys=True)))
 
-# pretty output for file
-with open(new_dir+'/tree.json', 'w') as outfile:
-	# write ONLY the json, not the array
-	json.dump(final_output[0], outfile, indent=4, sort_keys=True, separators=(',', ': '))
