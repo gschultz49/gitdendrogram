@@ -12,8 +12,8 @@ import subprocess
 global options
 # Default options
 options= {
-  "git": "false"
-  # "git": "true"
+  # "git": "false"
+  "git": "true"
 }
 
 # Dictate path here, maybe make this a CL arguement later
@@ -60,7 +60,8 @@ def appendFile(file, parent, arr):
 
   
 
-
+  
+  
   potential_parent=getParentDirectory()
   # special case for files in root directory
   if os.path.relpath(potential_parent,parent)==os.path.basename(local_root):
@@ -74,7 +75,7 @@ def appendFile(file, parent, arr):
 
 
 
-
+  reference=os.getcwd()
   global options
   if options['git']=="true":
     # gets all commit data across branches for this file
