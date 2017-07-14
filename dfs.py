@@ -15,7 +15,8 @@ import hashlib
 # root= "C:\Users\GSCHULTZ\Desktop\gitstats-new\gitstats\Flask"
 # root="C:\Users\GSCHULTZ\Desktop\SimulScan"
 # root="C:\Users\GSCHULTZ\Desktop\SimulScan\SimulScanTest"
-root="/Users/gschultz49/Desktop/Projects/SpringMvcStepByStep"
+# root="/Users/gschultz49/Desktop/Projects/SpringMvcStepByStep"
+root="/Users/gschultz49/Desktop/Projects/web-api-auth-examples"
 
 # Loops through all files and generates the corresponding JSON data
 
@@ -40,6 +41,23 @@ def generateFile(files, parent):
     })
   return keeper
 
+def generateDirs(dirs, parent, abs_path):
+  master=[]
+  for direct in dirs:
+    new_dir_path=os.path.join(abs_path,direct)
+    file_dir= os.path.dirname(new_dir_path)
+    parent = os.path.dirname(file_dir)
+    parent_simple= os.path.split(os.path.dirname(file_dir))[-1]
+    master.append({
+      "name" : direct,
+      "file_path" : file_dir,
+      "parent": parent,
+      "parent_simple" : parent_simple,
+      "children"  : directDFS(new_dir_path),
+      "isFile":"false",
+      })
+  return master
+
 
 def directDFS(abs_path, master=[]):
   # Setup, needed regardless of recursion state
@@ -49,31 +67,10 @@ def directDFS(abs_path, master=[]):
   parent= os.path.dirname(abs_path)
   folder_name = os.path.basename(abs_path)
 
-   # enters each directory
-  if dirs!=[]:
-    master= generateFile(files, parent)
-    for direct in dirs:
-      new_dir_path=os.path.join(abs_path,direct)
-      file_dir= os.path.dirname(new_dir_path)
-      parent = os.path.dirname(file_dir)
-      parent_simple= os.path.split(os.path.dirname(file_dir))[-1]
-      master.append({
-        "name" : direct,
-        "file_path" : file_dir,
-        "parent": parent,
-        "parent_simple" : parent_simple,
-        "children"  : directDFS(new_dir_path),
-        "isFile":"false",
-        # "id_hash" : int(hashlib.md5(os.path.join(parent+direct)).hexdigest(), 16) 
-        })
-
-
   # Base case
-  # generates json for directories containing files AND directories
-  # if files!=[]:
-  #   master= generateFile(files, parent)
-
- 
+  if dirs!=[]:
+    # construct json data for files and directories
+    master= generateFile(files, parent) + generateDirs(dirs, parent, abs_path)
 
   return master
 	
@@ -86,16 +83,17 @@ final_output.append({
   "parent": "null",
   "children" : directDFS(root),
   "isFile" : "false",
-  # "id_hash" : int(hashlib.md5(os.path.join("null"+root)).hexdigest(), 16) 
   })
 
-# reset for json dump
+# directs output
 os.chdir(root)
-print (final_output)
+new_dir= root+"/"+"TREE_OUTPUT"
+os.chdir(new_dir) if os.path.exists(new_dir) else os.mkdir(new_dir)
+
 # Output to terminal
 # print ("final_output %s" %(json.dumps(final_output, indent=4, sort_keys=True)))
 
 # pretty output for file
-with open('data.json', 'w') as outfile:
+with open(new_dir+'/tree.json', 'w') as outfile:
 	# write ONLY the json, not the array
 	json.dump(final_output[0], outfile, indent=4, sort_keys=True, separators=(',', ': '))
