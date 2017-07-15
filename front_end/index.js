@@ -1,4 +1,4 @@
-treeJSON = d3.json("SimulScan.json", function(error, treeData) {
+treeJSON = d3.json("data/example.json", function(error, treeData) {
 
 // Set the dimensions and margins of the diagram
 

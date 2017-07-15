@@ -1,5 +1,5 @@
 // Get JSON data
-treeJSON = d3.json("../flask.json", function(error, treeData) {
+treeJSON = d3.json("data/spring.json", function(error, treeData) {
     console.log(treeData);
 
     // Calculate total nodes, max label length
