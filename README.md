@@ -1,5 +1,4 @@
 # DDgenerator
-A directory-oriented dendrogram generator with a visualization in d3.js
 
 This project has 2 parts, the depth-first recursive directory mapper in python, and the visualization in d3.js    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>dfs.py</code> Constructs the JSON file associated with the dendrogram  
