@@ -1,0 +1,138 @@
+{
+    "isFile": "false",
+    "name": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+    "parent": "null",
+    "children": [
+        {
+            "parent_simple": "top",
+            "name": "empty\\",
+            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+            "isFile": "false",
+            "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\empty",
+            "new_dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\empty\\",
+            "children": []
+        },
+        {
+            "parent_simple": "top",
+            "name": "second\\",
+            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+            "isFile": "false",
+            "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+            "new_dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\",
+            "children": [
+                {
+                    "parent_simple": "second",
+                    "name": "fourth\\",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                    "isFile": "false",
+                    "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth",
+                    "new_dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth\\",
+                    "children": [
+                        {
+                            "name": "fourthfile.txt",
+                            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth",
+                            "commit_data": "Git mode not enabled",
+                            "git_path": "second\\fourth\\fourthfile.txt",
+                            "isFile": "true",
+                            "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth\\fourthfile.txt"
+                        },
+                        {
+                            "name": "fourthfile2.txt",
+                            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth",
+                            "commit_data": "Git mode not enabled",
+                            "git_path": "second\\fourth\\fourthfile2.txt",
+                            "isFile": "true",
+                            "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth\\fourthfile2.txt"
+                        }
+                    ]
+                },
+                {
+                    "parent_simple": "second",
+                    "name": "third\\",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                    "isFile": "false",
+                    "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third",
+                    "new_dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third\\",
+                    "children": [
+                        {
+                            "name": "thirdfile.txt",
+                            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third",
+                            "commit_data": "Git mode not enabled",
+                            "git_path": "second\\third\\thirdfile.txt",
+                            "isFile": "true",
+                            "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third\\thirdfile.txt"
+                        }
+                    ]
+                },
+                {
+                    "name": "data.json",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                    "commit_data": "Git mode not enabled",
+                    "git_path": "second\\data.json",
+                    "isFile": "true",
+                    "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\data.json"
+                },
+                {
+                    "name": "secondfile.txt",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                    "commit_data": "Git mode not enabled",
+                    "git_path": "second\\secondfile.txt",
+                    "isFile": "true",
+                    "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\secondfile.txt"
+                },
+                {
+                    "name": "secondfile2.txt",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                    "commit_data": "Git mode not enabled",
+                    "git_path": "second\\secondfile2.txt",
+                    "isFile": "true",
+                    "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\secondfile2.txt"
+                }
+            ]
+        },
+        {
+            "parent_simple": "top",
+            "name": "second2\\",
+            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+            "isFile": "false",
+            "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2",
+            "new_dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2\\",
+            "children": [
+                {
+                    "name": "second2file.txt",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2",
+                    "commit_data": "Git mode not enabled",
+                    "git_path": "second2\\second2file.txt",
+                    "isFile": "true",
+                    "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2\\second2file.txt"
+                }
+            ]
+        },
+        {
+            "parent_simple": "top",
+            "name": "TREE_OUTPUT\\",
+            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+            "isFile": "false",
+            "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\TREE_OUTPUT",
+            "new_dir_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\TREE_OUTPUT\\",
+            "children": [
+                {
+                    "name": "top.json",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\TREE_OUTPUT",
+                    "commit_data": "Git mode not enabled",
+                    "git_path": "TREE_OUTPUT\\top.json",
+                    "isFile": "true",
+                    "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\TREE_OUTPUT\\top.json"
+                }
+            ]
+        },
+        {
+            "name": "data.json",
+            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram",
+            "commit_data": "Git mode not enabled",
+            "git_path": "..\\data.json",
+            "isFile": "true",
+            "full_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\data.json"
+        }
+    ]
+}

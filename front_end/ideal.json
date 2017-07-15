@@ -1,0 +1,43 @@
+{
+    "name": "top",
+    "parent": "null",
+    "children": [
+      {
+        "name": "second",
+        "parent": "top",
+        "children": [
+          {
+            "name": "third",
+            "parent": "second",
+            "children" : [
+	            {
+	                "name": "thirdfile.txt",
+	                "parent": "third"
+	            }
+            ]
+          },
+          {
+            "name": "fourth",
+            "parent": "second",
+            "children" : [
+	            {
+	                "name": "fourthfile.txt",
+	                "parent": "fourth"
+	            }
+            ]
+          }
+        ]
+      },
+
+      {
+        "name": "second2",
+        "parent": "top",
+        "children" : [
+	        {
+	            "name" : "second2file.txt",
+	            "parent": "second2"
+	        }
+        ]
+      }
+    ]
+}

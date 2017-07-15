@@ -1,0 +1,104 @@
+{
+    "children": [
+        {
+            "children": [
+                {
+                    "commit_data": "commit d7575a830c30c2561cf5a98d12b9d7d86232c4c5\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:47:40 2017 -0400\n\n    organization\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                    "name": "dnd.html",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\front_end"
+                },
+                {
+                    "commit_data": "commit 45c44475b70ea3aff50e4041a1e1025c4f05a1e2\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 22:57:26 2017 -0400\n\n    middle of dfs\n\ncommit d7575a830c30c2561cf5a98d12b9d7d86232c4c5\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:47:40 2017 -0400\n\n    organization\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                    "name": "dndTree.js",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\front_end"
+                },
+                {
+                    "commit_data": "commit d7575a830c30c2561cf5a98d12b9d7d86232c4c5\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:47:40 2017 -0400\n\n    organization\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                    "name": "flare.json",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\front_end"
+                },
+                {
+                    "commit_data": "commit d7575a830c30c2561cf5a98d12b9d7d86232c4c5\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:47:40 2017 -0400\n\n    organization\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                    "name": "ideal.json",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\front_end"
+                },
+                {
+                    "commit_data": "commit d7575a830c30c2561cf5a98d12b9d7d86232c4c5\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:47:40 2017 -0400\n\n    organization\n",
+                    "name": "index.html",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\front_end"
+                },
+                {
+                    "commit_data": "commit d7575a830c30c2561cf5a98d12b9d7d86232c4c5\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:47:40 2017 -0400\n\n    organization\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                    "name": "index.js",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\front_end"
+                }
+            ],
+            "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\front_end",
+            "name": "front_end\\",
+            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram",
+            "parent_simple": "gitdendrogram"
+        },
+        {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "commit_data": "commit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                                    "name": "fourthfile.txt",
+                                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth"
+                                },
+                                {
+                                    "commit_data": "commit 918965f1b8028e0b0f33f6111b999c78e511449d\nAuthor: Schultz <GSchultz@zebra.com>\nDate:   Thu Jul 13 12:31:32 2017 -0400\n\n    implementation of dfs\n\ncommit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                                    "name": "fourthfile2.txt",
+                                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth"
+                                }
+                            ],
+                            "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\fourth",
+                            "name": "fourth\\",
+                            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                            "parent_simple": "second"
+                        },
+                        {
+                            "children": [
+                                {
+                                    "commit_data": "commit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                                    "name": "thirdfile.txt",
+                                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third"
+                                }
+                            ],
+                            "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second\\third",
+                            "name": "third\\",
+                            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                            "parent_simple": "second"
+                        }
+                    ],
+                    "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second",
+                    "name": "second\\",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+                    "parent_simple": "top"
+                },
+                {
+                    "children": [
+                        {
+                            "commit_data": "commit 97646f2f5ad34e82ebd8c2a78ef4d58b85ff5ccd\nAuthor: Greg Schultz <gjs86@cornell.edu>\nDate:   Wed Jul 12 21:35:20 2017 -0400\n\n    initial\n",
+                            "name": "second2file.txt",
+                            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2"
+                        }
+                    ],
+                    "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top\\second2",
+                    "name": "second2\\",
+                    "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+                    "parent_simple": "top"
+                }
+            ],
+            "file_path": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram\\top",
+            "name": "top\\",
+            "parent": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram",
+            "parent_simple": "gitdendrogram"
+        }
+    ],
+    "name": "C:\\Users\\GSCHULTZ\\Desktop\\gitdendrogram",
+    "parent": "null"
+}
