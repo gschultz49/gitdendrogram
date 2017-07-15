@@ -13,3 +13,5 @@ This project has 2 parts, the depth-first recursive directory mapper in python, 
 Visualizing any directory(currently in a simple manner), on Windows or Linux. With the git option enabled, clicking a file within the tree renders all commit data across all branches for the file. 
 
 
+![alt text](https://raw.githubusercontent.com/gschultz49/DDgenerator/front_end/data/example.png)
+
